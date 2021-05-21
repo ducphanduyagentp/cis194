@@ -26,7 +26,10 @@ source-repository head
 library
   exposed-modules:
       Lib
-      Week_01
+      Week01.Week_01
+      Week02.Log
+      Week02.LogAnalysis
+      Week02.Week_02
   other-modules:
       Paths_cis194
   hs-source-dirs:

@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -Wall #-}
 
-module Week_01
+module Week01.Week_01
     ( week01Test
     ) where
 

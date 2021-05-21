@@ -2,7 +2,10 @@
 
 module Main where
 
-import Week_01
+import Week01.Week_01
+import Week02.Week_02
 
 main :: IO()
-main = week01Test
+main = do
+    week01Test
+    week02Test
