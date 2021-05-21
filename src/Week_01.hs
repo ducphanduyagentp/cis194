@@ -15,6 +15,7 @@ week01Test = do
     print (sumDigits [16, 7, 12, 5] == 22)
     print (validate 4012888888881881 == True)
     print (validate 4012888888881882 == False)
+    print (hanoi 2 "a" "b" "c" == [("a","c"), ("a","b"), ("c","b")])
 
 
 toDigits :: Integer -> [Integer]
@@ -50,3 +51,11 @@ validate :: Integer -> Bool
 validate n
   | ((sumDigits (doubleEveryOther (toDigits n))) `mod` 10) == 0 = True
   | otherwise = False
+
+
+type Peg = String
+type Move = (Peg, Peg)
+hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
+hanoi n a b c
+  | n == 1 = [(a, b)]
+  | otherwise = (hanoi (n - 1) a c b) ++ [(a, b)] ++ (hanoi (n - 1) c b a)
