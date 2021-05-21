@@ -50,13 +50,11 @@ isRelevant msg = case msg of
     _ -> False
 
 
-getMessageFromLog :: [LogMessage] -> [String]
-getMessageFromLog [] = []
-getMessageFromLog [msg] = case msg of
-    (LogMessage _ _ rest) -> [rest]
-    _ -> []
-getMessageFromLog (a:as) = (getMessageFromLog [a]) ++ (getMessageFromLog as)
+getMessageFromLog :: LogMessage -> String
+getMessageFromLog msg = case msg of
+    (LogMessage _ _ rest) -> rest
+    _ -> ""
 
 
 whatWentWrong :: [LogMessage] -> [String]
-whatWentWrong msg = getMessageFromLog( filter isRelevant (inOrder (build msg)) )
+whatWentWrong msg = map getMessageFromLog ( filter isRelevant (inOrder (build msg)) )
